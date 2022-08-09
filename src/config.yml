@@ -1,0 +1,6 @@
+texts:
+  title: "Login"
+  input_title: "Password"
+  input_placeholder: "please input your password"
+  wrongpass: "Wrong password!"
+  close: "Please input your password!"
