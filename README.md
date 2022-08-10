@@ -3,6 +3,7 @@
 Added AuthMe UI for Bedrock Edition players
 
 ![Minecraft Version](https://img.shields.io/badge/Minecraft-1.18~1.19-green) ![GitHub Repo stars](https://img.shields.io/github/stars/klxf/AuthMeBEUI) ![release](https://img.shields.io/github/v/release/klxf/AuthMeBEUI) ![downloads](https://img.shields.io/github/downloads/klxf/AuthMeBEUI/latest/total) [![MCBBS](https://img.shields.io/badge/MCBBS-v4%20Page-green)](https://beta.mcbbs.net/resource/servermod/et7spw1n)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fklxf%2FAuthMeBEUI.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fklxf%2FAuthMeBEUI?ref=badge_shield)
 
 ## 关于这个插件
 这个插件基于 Floodgate 为 Geyser 互通服的基岩版玩家添加了 AuthMe 插件的登录 UI，使之登录更加方便
@@ -15,3 +16,7 @@ Added AuthMe UI for Bedrock Edition players
 
 插件暂不支持重载，修改 `config.yml` 后需要重启服务器
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fklxf%2FAuthMeBEUI.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fklxf%2FAuthMeBEUI?ref=badge_large)
