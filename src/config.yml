@@ -1,5 +1,6 @@
 texts:
-  title: "Login"
+  login_title: "Login"
+  reg_title: "Register"
   input_title: "Password"
   input_placeholder: "please input your password"
   wrongpass: "Wrong password!"

@@ -22,23 +22,42 @@ public class EventListener implements Listener {
         Player player = e.getPlayer();
         FloodgatePlayer bePlayer = FloodgateApi.getInstance().getPlayer(player.getUniqueId());
 
-        if (!AuthMeApi.getInstance().isAuthenticated(player)) {
-            // If player isn't authenticated
-            CustomForm.Builder loginForm = CustomForm.builder();
-            loginForm = loginForm.title(Util.getText("texts.title"));
-            loginForm = loginForm.input(Util.getText("texts.input_title"), Util.getText("texts.input_placeholder"));
-            loginForm = loginForm.validResultHandler(response -> {
+        if (!AuthMeApi.getInstance().isRegistered(player.getName())) {
+            // If player isn't registered
+            CustomForm.Builder regForm = CustomForm.builder();
+            regForm = regForm.title(Util.getText("text.reg_title"));
+            regForm = regForm.input(Util.getText("texts.input_title"), Util.getText("texts.input_placeholder"));
+            regForm = regForm.validResultHandler(response -> {
                 String pass = response.asInput();
-                if (AuthMeApi.getInstance().checkPassword(player.getName(), pass)) {
-                    AuthMeApi.getInstance().forceLogin(player);
+                if (!pass.isEmpty()){
+                    AuthMeApi.getInstance().forceRegister(player, pass);
                 } else {
-                    player.kickPlayer(Util.getText("texts.wrongpass"));
+                    player.kickPlayer(Util.getText("text.close"));
                 }
             });
-            loginForm = loginForm.closedResultHandler(response -> player.kickPlayer(Util.getText("texts.close")));
+            regForm = regForm.closedResultHandler(response -> player.kickPlayer(Util.getText("text.close")));
 
             // Send form
-            bePlayer.sendForm(loginForm.build());
+            bePlayer.sendForm(regForm.build());
+        } else {
+            if (!AuthMeApi.getInstance().isAuthenticated(player)) {
+                // If player isn't authenticated
+                CustomForm.Builder loginForm = CustomForm.builder();
+                loginForm = loginForm.title(Util.getText("texts.login_title"));
+                loginForm = loginForm.input(Util.getText("texts.input_title"), Util.getText("texts.input_placeholder"));
+                loginForm = loginForm.validResultHandler(response -> {
+                    String pass = response.asInput();
+                    if (AuthMeApi.getInstance().checkPassword(player.getName(), pass)) {
+                        AuthMeApi.getInstance().forceLogin(player);
+                    } else {
+                        player.kickPlayer(Util.getText("texts.wrongpass"));
+                    }
+                });
+                loginForm = loginForm.closedResultHandler(response -> player.kickPlayer(Util.getText("texts.close")));
+
+                // Send form
+                bePlayer.sendForm(loginForm.build());
+            }
         }
     }
 }
