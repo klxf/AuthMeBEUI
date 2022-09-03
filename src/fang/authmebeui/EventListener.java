@@ -25,7 +25,7 @@ public class EventListener implements Listener {
         if (!AuthMeApi.getInstance().isRegistered(player.getName())) {
             // If player isn't registered
             CustomForm.Builder regForm = CustomForm.builder();
-            regForm = regForm.title(Util.getText("text.reg_title"));
+            regForm = regForm.title(Util.getText("texts.reg_title"));
             regForm = regForm.input(Util.getText("texts.input_title"), Util.getText("texts.input_placeholder"));
             regForm = regForm.validResultHandler(response -> {
                 String pass = response.asInput();
